@@ -308,9 +308,11 @@ class Vehicle extends Insurance{
 }
 
 /************************************************************
+*************************************************************
 
                         START HERE                                                   // IF it is empty, show THAT IT IS EMPTY
-
+										    // MAIN CLASS STARTS HERE
+*************************************************************
 ************************************************************/
 
 class Program{
@@ -341,18 +343,19 @@ class Program{
 
     public static void refreshScreen() {
         clearScreen();
-        System.out.println("\n\t\t\tThekumootil Insurance\n");
+        System.out.println("\n\t\t\tTHEKUMOOTIL INSURANCE\n");
     }
 
     public static void transitionBuffer() {
-        System.out.println("Press any key to continue!");
+        System.out.println(".....Press any key to continue!.....");
         input.nextLine();
     }
 
     public static void login() {                            //PLEASE CHANGE
         refreshScreen();
         System.out.println("\n\t[1]: Admin Login\n\t[2]: Client Login\n\t[3]: Exit\n\t[4]: Help\n");
-        System.out.print("\n\tOption : ");
+	System.out.println("\tSelect An Option");
+        System.out.print("\tOption : ");
 
         try{
             int option = input.nextInt();
@@ -386,19 +389,20 @@ class Program{
 
     public static void adminLogin() {
         refreshScreen();
-        System.out.print("Username : ");
+	System.out.prinln("\tADMIN LOGIN\n");
+        System.out.print("USERNAME :  ");
         String username = input.nextLine();
 
-        System.out.print("PASSWORD : ");
+        System.out.print("PASSWORD :  ");
         String password = input.nextLine();
 
         if (username.equals(USERNAME) && password.equals(PASSWORD)) {
-            System.out.println("Logged in succesfully!");
+            System.out.println(".....................Logged in succesfully!");
             transitionBuffer();
             adminMenu();
         } 
         else {
-            System.out.println("Username or Password is incorrect!");
+            System.out.println(".....................Invalid Username or Password");
             transitionBuffer();
             login();
         }
@@ -410,15 +414,18 @@ class Program{
 
     public static void leave() {
         refreshScreen();
-        System.out.println("\n\t\tThank you for using our portal!\nWe hope to see you again!\n");
+	System.out.println("\n\t\t*********\n");
+        System.out.println("\n\t\tTHANK YOU \n\tFor Using The Thekumootil Portal!\n\tWe Hope To See You Again!\n");
         transitionBuffer();
         System.exit(0);
     }
  
     public static void adminMenu(){
         refreshScreen();
-        System.out.println("\n\n\t\t\tAdmin Menu\n\n");
+        System.out.println("\n\n\t\t\tADMIN MENU\n\n");
         System.out.println("\t[1]: Make New Client\n\t[2]: Modify Client\n\t[3]: Delete Client\n\t[4]: Logout from Admin\n\n");
+	System.out.println("\tSelect An Option");
+        System.out.print("\tOption : ");
         int option = input.nextInt();
         switch(option){
             case 1:
@@ -434,7 +441,7 @@ class Program{
                 login();
             break;
             default:
-                System.out.println("\t\t\tPlease enter a valid option!");
+                System.out.println("\t\t\t......Please enter a valid option!");
                 transitionBuffer();
                 adminMenu();
         }
@@ -443,18 +450,20 @@ class Program{
     public static void makeClient(){
         refreshScreen();
         System.out.println("\n\tNEW CLIENT:\n\t");
-        System.out.println("\tEnter Client Details: ");
+        System.out.println("\tEnter The Client Details: ");
         System.out.println("\n\n\tName: ");
         String name = input.nextLine();
         System.out.println("\n\tPassword: ");
         String pass = input.nextLine();
+	System.out.println("\tClient Insurance For........");
         System.out.println("\n\t[1]Health \t[2]Vehicle: ");
         int option = input.nextInt();
+	    
         String temp_ID;
         switch (option){
             case 1:
                 ID_H_count++;                                                // Increase the count of Health Insurance
-                ID_t_count++;
+                ID_t_count++;						     // Increase the count of total no of Insurances
                 temp_ID = ID_h + ID_t_count + "/" + ID_H_count;
                 all_health.add(new Health(name, temp_ID, pass));
                 transitionBuffer();
@@ -467,7 +476,7 @@ class Program{
                 transitionBuffer();
             break;
             default:
-                System.out.println("\n\t\tINVALID OPTION!");
+                System.out.println("Please enter a valid option!");
                 transitionBuffer();
                 makeClient();
         }
