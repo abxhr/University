@@ -186,7 +186,7 @@ class Health extends Insurance{
         int has = 1;
         int op;
         double amount, amountToBePaid, amountInsurance;
-        for(int i=0;has=1;i++){
+        for(int i=0;has==1;i++){
             System.out.println("Choose from below:\n[1]: Consultation\n[2]: Medicine\n[3]: Diagnostics\n[4]: Dental\n[5]: Optical\n[6]: Maternity\n[7]: Exit");
             System.out.println("Enter: ");
             op = input.nextInt();
@@ -284,6 +284,7 @@ class Vehicle extends Insurance{
     double medical;
     boolean emergency = true;
     boolean sdriver = true;
+
     
     // Functions:
     Vehicle(String name, String id, String client_pass){
@@ -476,27 +477,27 @@ class Vehicle extends Insurance{
         int has = 1;
         int op;
         double amount, amountToBePaid, amountInsurance;
-        for(int i = 0;has = 1;i++){
+        for(int i = 0;has == 1;i++){
             System.out.println("[1]: Collision\t[2]: Total Loss\t[3]: Exit");
             System.out.println("Enter: ");
             op = input.nextInt();
             switch(op){
                 case 1:
                     System.out.println("Enter the amount for the claim: ");
-                    this.amount = input.nextDouble();
-                    this.amountToBePaid = this.amount * (this.collision * 0.01);
-                    this.amountInsurance = this.amount - this.amountToBePaid;
+                    amount = input.nextDouble();
+                    amountToBePaid = amount * (this.collision * 0.01);
+                    amountInsurance = amount - amountToBePaid;
                     System.out.println("\nCLAIMED!");
-                    System.out.println("You have to pay AED " + this.amountToBePaid);
-                    this.used += this.amountInsurance;
+                    System.out.println("You have to pay AED " + amountToBePaid);
+                    this.used += amountInsurance;
                 case 2:
                     System.out.println("Enter the amount for the claim: ");
-                    this.amount = input.nextDouble();
-                    this.amountToBePaid = this.amount * (this.collision * 0.01);
-                    this.amountInsurance = this.amount - this.amountToBePaid;
+                    amount = input.nextDouble();
+                    amountToBePaid = amount * (this.collision * 0.01);
+                    amountInsurance = amount - amountToBePaid;
                     System.out.println("\nCLAIMED!");
-                    System.out.println("You have to pay AED " + this.amountToBePaid);
-                    this.used += this.amountInsurance;
+                    System.out.println("You have to pay AED " + amountToBePaid);
+                    this.used += amountInsurance;
                 default:
                     System.out.println("\tINVALID OPTION!");
                     this.claims();
@@ -507,7 +508,7 @@ class Vehicle extends Insurance{
     }
     void display(){
         super.display();
-        System.out.println("\nCar Name: %s\nCar Type: %s\nKms: %lf\nInsured Amount: %lf\nCollision Coverage (Percent): %lf\nMedical Deductibility: %lf\nEmergency Roadside Assistance: %B\nSafe Driver Discount: %B\n", car_name, car_type, car_kms, insuredAmount, collision, medical, emergency, sdriver);
+        System.out.println("\nCar Name: %s\nCar Type: %s\nKms: %lf\nInsured Amount: %lf\nCollision Coverage (Percent): %lf\nMedical Deductibility: %lf\nEmergency Roadside Assistance: %B\nSafe Driver Discount: %B\n", car_name, car_type, car_kms, insured_amount, collision, medical, emergency, sdriver);
     }
 }
 
@@ -537,7 +538,6 @@ class Program{
 
     public static void main(String [] args) {
         login();
-
     }
 
     public static void clearScreen() {
@@ -858,10 +858,10 @@ class Program{
     }
 
     static int kidharHai(String id){                            // 0 -> Not there   1 -> Health   -1 -> Vehicle 
-        if(temp_id.charAt(3) == 'H'){
+        if(id.charAt(3) == 'H'){
             return 1;
         }
-        else if(temp_id.charAt(3) == 'V'){
+        else if(id.charAt(3) == 'V'){
             return -1;
         }
         else{
@@ -872,7 +872,6 @@ class Program{
     public static void termsAndConditions() {
         refreshScreen();
         System.out.println("\n\n\t\t\tTERMS AND CONDITIONS:\n\n");
-        
         transitionBuffer();
     }
 }
