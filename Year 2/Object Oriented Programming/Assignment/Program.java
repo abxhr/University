@@ -528,13 +528,14 @@ class Program{
     private static String ID_v = "ThkV02020/";
 
     // ID for health : ThkH02020/1/1
+    // ID for vehicle : ThkV02020/1/1
 
-    private static int ID_t_count = 0;
-    private static int ID_H_count = 0;
-    private static int ID_V_count = 0;
+    private static int ID_t_count = 0;  //Total no of Insurances
+    private static int ID_H_count = 0;  //Total no of Health Insurances
+    private static int ID_V_count = 0;  //Total no of Vehicle Insurances
 
-    private static ArrayList <Health> all_health  = new ArrayList <Health>();
-    private static ArrayList <Vehicle> all_vehicle = new ArrayList <Vehicle>();
+    private static ArrayList <Health> all_health  = new ArrayList <Health>();     //Array List to hold all Health Insurances (Health Clients)
+    private static ArrayList <Vehicle> all_vehicle = new ArrayList <Vehicle>();   //Array List to hold all Vehicle Insurances (Vehicle Clients)
 
     public static void main(String [] args) {
         login();
@@ -555,10 +556,11 @@ class Program{
         input.nextLine();
     }
 
+    //LOGIN PAGE......FIRST MENU
     public static void login() {                            //PLEASE CHANGE
         refreshScreen();
         System.out.println("\n\t[1]: Admin Login\n\t[2]: Client Login\n\t[3]: Exit\n\t[4]: Help\n");
-	    System.out.println("\tSelect An Option");
+	System.out.println("\tSelect An Option [1-4]");
         System.out.print("\tOption : ");
 
         try{
@@ -570,7 +572,7 @@ class Program{
                     adminLogin();
                 break;
                 case 2:
-                    clientLogin();     //Make this please
+                    clientLogin();
                 break;
                 case 3:
                     leave();
@@ -580,7 +582,8 @@ class Program{
                     login();
                 break;
                 default:
-                    System.out.println("\n\t\tPlease enter a valid option... you idiot\n");
+                    System.out.println("\n\t\tInavlid Option........\nPlease enter a valid option...\n");
+		    transitionBuffer();
                     login();
             }
         }
@@ -593,7 +596,7 @@ class Program{
 
     public static void adminLogin() {
         refreshScreen();
-	    System.out.prinln("\tADMIN LOGIN\n");
+	System.out.prinln("\tADMIN LOGIN\n");
         System.out.print("USERNAME :  ");
         String username = input.nextLine();
 
@@ -684,7 +687,7 @@ class Program{
                 login();
             break;
             default:
-                System.out.println("\t\t\t......Please enter a valid option!");
+                System.out.println("\n\t\tInavlid Option........\nPlease enter a valid option...\n");
                 transitionBuffer();
                 adminMenu();
         }
