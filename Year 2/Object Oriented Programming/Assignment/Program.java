@@ -510,6 +510,7 @@ class Vehicle extends Insurance{
                     System.out.println("\nCLAIMED!");
                     System.out.println("You have to pay AED " + amountToBePaid);
                     this.used += amountInsurance;
+                break;
                 case 2:
                     System.out.println("Enter the amount for the claim: ");
                     amount = input.nextDouble();
@@ -518,6 +519,10 @@ class Vehicle extends Insurance{
                     System.out.println("\nCLAIMED!");
                     System.out.println("You have to pay AED " + amountToBePaid);
                     this.used += amountInsurance;
+                break;
+                case 3:
+                    transitionBuffer();
+                break;
                 default:
                     System.out.println("\tINVALID OPTION!");
                     this.claims();
@@ -713,7 +718,7 @@ class Program{
                 login();
             break;
             default:
-                System.out.println("\n\t\tInavlid Option........\nPlease enter a valid option...\n");
+                System.out.println("\n\t\tInvalid Option........\nPlease enter a valid option...\n");
                 transitionBuffer();
                 adminMenu();
         }
