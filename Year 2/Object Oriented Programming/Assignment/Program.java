@@ -537,8 +537,8 @@ class Program{
     private static String ID_h = "ThkH02020/";                               // Write function to format the IDs properly
     private static String ID_v = "ThkV02020/";
 
-    // ID for health : ThkH02020/1/1
-    // ID for vehicle : ThkV02020/1/1
+    // ID for health : ThkH02020/t/h
+    // ID for vehicle : ThkV02020/t/v
 
     private static int ID_t_count = 0;  //Total no of Insurances
     private static int ID_H_count = 0;  //Total no of Health Insurances
