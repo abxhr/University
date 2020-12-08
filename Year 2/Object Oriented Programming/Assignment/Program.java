@@ -12,7 +12,7 @@ abstract class Insurance{
     String expiry_d;
     String type;
     double used;
-    Scanner input = new Scanner(System.in);
+    static Scanner input = new Scanner(System.in);
     
     Insurance(String name, String id, String client_pass){
         this.name = name;
@@ -508,7 +508,7 @@ class Vehicle extends Insurance{
     }
     void display(){
         super.display();
-        System.out.println("\nCar Name: %s\nCar Type: %s\nKms: %lf\nInsured Amount: %lf\nCollision Coverage (Percent): %lf\nMedical Deductibility: %lf\nEmergency Roadside Assistance: %B\nSafe Driver Discount: %B\n", car_name, car_type, car_kms, insured_amount, collision, medical, emergency, sdriver);
+        System.out.printf("\nCar Name: %s\nCar Type: %s\nKms: %lf\nInsured Amount: %lf\nCollision Coverage (Percent): %lf\nMedical Deductibility: %lf\nEmergency Roadside Assistance: %B\nSafe Driver Discount: %B\n", car_name, car_type, car_kms, insured_amount, collision, medical, emergency, sdriver);
     }
 }
 
@@ -596,7 +596,7 @@ class Program{
 
     public static void adminLogin() {
         refreshScreen();
-	System.out.prinln("\tADMIN LOGIN\n");
+	System.out.println("\tADMIN LOGIN\n");
         System.out.print("USERNAME :  ");
         String username = input.nextLine();
 
@@ -629,7 +629,7 @@ class Program{
         if(i>=0){
             switch(op){
                 case 1:
-                    if(password.equals(all_health[i].client_pass)){
+                    if(password.equals(all_health.get(i).client_pass)){
                         transitionBuffer();
                         clientMenu(i,op);
                     }
@@ -638,7 +638,7 @@ class Program{
                     }
                 break;
                 case -1:
-                    if(password.equals(all_vehicle[i].client_pass)){
+                    if(password.equals(all_vehicle.get(i).client_pass)){
                         transitionBuffer();
                         clientMenu(i,op);
                     }
@@ -704,20 +704,20 @@ class Program{
                 switch(kh){
                     case 1:
                         transitionBuffer();
-                        all_health[ind].claims();
+                        all_health.get(ind).claims();
                     case -1:
                         transitionBuffer();
-                        all_vehicle[ind].claims();
+                        all_vehicle.get(ind).claims();
                 }
             break;
             case 2:
                 switch(kh){
                     case 1:
                         transitionBuffer();
-                        all_health[ind].display();
+                        all_health.get(ind).display();
                     case -1:
                         transitionBuffer();
-                        all_vehicle[ind].display();
+                        all_vehicle.get(ind).display();
                 }
             break;
             case 3:
@@ -777,7 +777,7 @@ class Program{
             case 1:
                 i = finder(temp_id);
                 if(i>=0){
-                    all_health[i-1].modify();
+                    all_health.get(i-1).modify();
                 }
                 else{
                     System.out.println("\n\tINVALID ID\n\t");
@@ -787,7 +787,7 @@ class Program{
             case 2:
                 i = finder(temp_id);
                 if(i>=0){
-                    all_vehicle[i].modify();
+                    all_vehicle.get(i-1).modify();
                 }
                 else{
                     System.out.println("\n\tINVALID ID\n\t");
@@ -839,7 +839,7 @@ class Program{
     static int finder(String temp_id){
         if(kidharHai(temp_id) == 1){
             for(int i = 0; i < all_health.size(); i++){
-                if((all_health[i].id).equals(temp_id)){
+                if((all_health.get(i).id).equals(temp_id)){
                     return i;
                 }
             }
@@ -848,7 +848,7 @@ class Program{
 
         else if(kidharHai(temp_id) == -1){
             for(int i = 0; i < all_vehicle.size(); i++){
-                if((all_vehicle[i].id).equals(temp_id)){
+                if((all_vehicle.get(i).id).equals(temp_id)){
                     return i;
                 }
             }
