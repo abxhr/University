@@ -1,3 +1,13 @@
+// Format Output
+//      Put Astricks (*)
+// Mask password
+// Ask "Are you sure you want to delete?"
+// COMPLETE TERMS & CONDITIONS FUNCTION
+// Add Thekumootil Insurance Video Link
+// "We will soon cover dog also ;)"
+// 
+
+
 import java.util.*;
 import java.time.*;
 import java.text.*;
@@ -775,7 +785,7 @@ class Program{
         switch (option){
             case 1:
                 ID_H_count++;                                                // Increase the count of Health Insurance
-                ID_t_count++;						     // Increase the count of total no of Insurances
+                ID_t_count++;						                        // Increase the count of total no of Insurances
                 temp_ID = ID_h + ID_t_count + "/" + ID_H_count;
                 all_health.add(new Health(name, temp_ID, pass));
                 transitionBuffer();
