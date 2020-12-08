@@ -28,7 +28,7 @@ abstract class Insurance{
     }
 
     void display(){
-        System.out.printf("\n\n\t\tName: %s\n\t\tID: %s\n\t\tType: %s\n\t\tPremium: %lf\n\t\tStart: %s\n\t\tExpiry: %s", name, id, type, premium, start_d, expiry_d);
+        System.out.printf("\n\n\t\tName: %s\n\t\tID: %s\n\t\tType: %s\n\t\tPremium: %.2f\n\t\tStart: %s\n\t\tExpiry: %s", name, id, type, premium, start_d, expiry_d);
     }
 
     public static void clearScreen() {
@@ -69,7 +69,6 @@ class Health extends Insurance{
         this.printDetails();
         int op = input.nextInt();
         this.planChooser(op);
-        this.display();
     }
 
     void getHospitals(){
@@ -145,6 +144,7 @@ class Health extends Insurance{
             default:
                 System.out.println("NOT VALID INPUT!\n");
         }
+        this.display();
     }
 
     void modify(){
@@ -206,6 +206,7 @@ class Health extends Insurance{
                         System.out.println("You have to pay AED " + amountToBePaid);
                         this.used += amountInsurance;
                     }
+                break;
                 case 2:
                     System.out.println("Enter the amount for the claim: ");
                     amount = input.nextDouble();
@@ -220,6 +221,7 @@ class Health extends Insurance{
                         System.out.println("You have to pay AED " + amountToBePaid);
                         this.used += amountInsurance;
                     }
+                break;
                 case 3:
                     System.out.println("Enter the amount for the claim: ");
                     amount = input.nextDouble();
@@ -234,6 +236,7 @@ class Health extends Insurance{
                         System.out.println("You have to pay AED " + amountToBePaid);
                         this.used += amountInsurance;
                     }
+                break;
                 case 4:
                     if(this.dental){
                         System.out.println("\nDental is Covered!\nCLAIMED!");
@@ -241,6 +244,7 @@ class Health extends Insurance{
                     else{
                         System.out.println("\nDental is not covered in your plan!");
                     }
+                break;
                 case 5:
                     if(this.optical){
                         System.out.println("\nOptical is Covered!\nCLAIMED!");
@@ -248,6 +252,7 @@ class Health extends Insurance{
                     else{
                         System.out.println("\nOptical is not covered in your plan!");
                     }
+                break;
                 case 6:
                     if(this.maternity){
                         System.out.println("\nMaternity is Covered!\nCLAIMED!");
@@ -255,8 +260,10 @@ class Health extends Insurance{
                     else{
                         System.out.println("\nMaternity is not covered in your plan!");
                     }
+                break;
                 case 7:
                     transitionBuffer();
+                break;
                 default:
                     System.out.println("\nINVALID OPTION!");
                     this.claims();
@@ -272,7 +279,7 @@ class Health extends Insurance{
 
     void display(){
         super.display();
-        System.out.printf("\n\t\tTotal Coverage: %lf\n\t\tDental: %B\n\t\tOptical: %B\n\t\tMaternity: %B\n\t\tConsultation Coverage: %lf\n\t\tMedicine Coverage: %lf\n\t\tDiagnostics Coverage: %lf\n", total_cov_amount, dental, optical, maternity, consultation, medicine, diagnostics);
+        System.out.printf("\n\t\tTotal Coverage: %.2f\n\t\tDental: %B\n\t\tOptical: %B\n\t\tMaternity: %B\n\t\tConsultation Coverage: %.2f\n\t\tMedicine Coverage: %.2f\n\t\tDiagnostics Coverage: %.2f\n", total_cov_amount, dental, optical, maternity, consultation, medicine, diagnostics);
     }
 }
 
@@ -295,7 +302,6 @@ class Vehicle extends Insurance{
         int op = input.nextInt();
         if(op>=1 && op<=2){
             this.planChooser(op);
-            this.display();
         }
         else{
             System.out.println("\tINVALID OPTION!");
@@ -409,6 +415,7 @@ class Vehicle extends Insurance{
         if(ct>=1 && ct<=4){
             System.out.println("\tEnter the Total Kilometres: ");
             this.car_kms = input.nextDouble();
+            input.nextLine();
             System.out.println("\tEnter the name of the Car: ");
             this.car_name = input.nextLine();
             switch(ct){
@@ -472,6 +479,7 @@ class Vehicle extends Insurance{
             System.out.println("\n\tINVALID OPTION!\n");
             transitionBuffer();
         }
+        this.display();
     }
 
     void claims(){
@@ -510,7 +518,7 @@ class Vehicle extends Insurance{
     }
     void display(){
         super.display();
-        System.out.printf("\nCar Name: %s\nCar Type: %s\nKms: %lf\nInsured Amount: %lf\nCollision Coverage (Percent): %lf\nMedical Deductibility: %lf\nEmergency Roadside Assistance: %B\nSafe Driver Discount: %B\n", car_name, car_type, car_kms, insured_amount, collision, medical, emergency, sdriver);
+        System.out.printf("\nCar Name: %s\nCar Type: %s\nKms: %.2f\nInsured Amount: %.2f\nCollision Coverage (Percent): %.2f\nMedical Deductibility: %.2f\nEmergency Roadside Assistance: %B\nSafe Driver Discount: %B\n", car_name, car_type, car_kms, insured_amount, collision, medical, emergency, sdriver);
     }
 }
 
@@ -667,7 +675,7 @@ class Program{
     public static void adminMenu(){
         refreshScreen();
         System.out.println("\n\n\t\t\tADMIN MENU\n\n");
-        System.out.println("\t[1]: Make New Client\n\t[2]: Modify Client\n\t[3]: Delete Client\n\t[4]: Logout from Admin\n\n");
+        System.out.println("\t[1]: Make New Client\n\t[2]: Change Client Plan\n\t[3]: Delete Client\n\t[4]: Logout from Admin\n\n");
 	    System.out.println("\tSelect An Option");
         System.out.print("\tOption : ");
         int option = input.nextInt();
@@ -675,16 +683,19 @@ class Program{
             case 1:
                 transitionBuffer();
                 makeClient();
+                transitionBuffer();
                 adminMenu();
             break;
             case 2:
                 transitionBuffer();
                 modifyClient();
+                transitionBuffer();
                 adminMenu();
             break;
             case 3:
                 transitionBuffer();
                 deleteClient();
+                transitionBuffer();
                 adminMenu();
             break;
             case 4:
@@ -710,9 +721,15 @@ class Program{
                     case 1:
                         transitionBuffer();
                         all_health.get(ind).claims();
+                        transitionBuffer();
+                        clientMenu(ind, kh);
+                    break;
                     case -1:
                         transitionBuffer();
                         all_vehicle.get(ind).claims();
+                        transitionBuffer();
+                        clientMenu(ind, kh);
+                    break;
                 }
             break;
             case 2:
@@ -720,9 +737,15 @@ class Program{
                     case 1:
                         transitionBuffer();
                         all_health.get(ind).display();
+                        transitionBuffer();
+                        clientMenu(ind, kh);
+                    break;
                     case -1:
                         transitionBuffer();
                         all_vehicle.get(ind).display();
+                        transitionBuffer();
+                        clientMenu(ind, kh);
+                    break;
                 }
             break;
             case 3:
@@ -776,7 +799,7 @@ class Program{
         System.out.println("\n\t\t\tMODIFY INSURANCE\n\n");
         System.out.println("\n\tEnter the Insurance ID: ");
         String temp_id = input.nextLine();
-        int op = input.nextInt();
+        int op = kidharHai(temp_id);
         int i;
         switch(op){
             case 1:
@@ -789,7 +812,7 @@ class Program{
                     transitionBuffer();
                 }
             break;
-            case 2:
+            case -1:
                 i = finder(temp_id);
                 if(i>=0){
                     all_vehicle.get(i).modify();
@@ -803,7 +826,6 @@ class Program{
                 System.out.println("\n\tINVALID OPTION\n");
                 transitionBuffer();
         }
-        adminMenu();
     }
 
     public static void deleteClient(){
@@ -838,7 +860,6 @@ class Program{
                 System.out.println("\n\tINVALID OPTION\n");
                 transitionBuffer();
         }
-        adminMenu();
     }
 
     static int finder(String temp_id){
