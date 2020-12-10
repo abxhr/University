@@ -49,9 +49,9 @@ for i in in_file.readline().strip('{}\n\r').split(',') :
 output_str = output_str[:-1] + "]\n\n"
 
 for i in Z:
-    output_str += "H." + str(i) + " = {"
+    output_str += "H + " + str(i) + " = {"
     for j in H:
-        temp = j * i
+        temp = j + i
         output_str += str(temp) + ","
     output_str = output_str[:-1] + "}\n"
 
