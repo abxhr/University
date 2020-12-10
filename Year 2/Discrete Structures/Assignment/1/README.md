@@ -15,8 +15,12 @@ This is the best example of real-life applications of this program, in this age 
 In a social graph, entries such as Users, Pages, Places, Groups, Comments, Photos, Photo Albums, Videos, Notes, Events, or anything that has properties that store data is considered to be a node or vertex in that graph. Entries such as a User posting a photo, Video or Comment, etc., a User updating their profile with their Place of birth, a relationship status Users, a User liking a Friend's Photo etc., are considered to be connection or edge in that graph.
 A social graph could be put to into many uses as this allows large amounts of data of individuals to stored in such a way that could be easily understood and analyzed to solve everyday issues.
 
+![Social Graph](https://github.com/abxhr/College-Stuff/blob/main/Year%202/Discrete%20Structures/Assignment/1/assets/SocialGraphs.jpg)
+
 •	Knowledge Graphs:
 Knowledge Graphs is a concept that has come about in these couple of years, as knowledge of anything and everything could be acquired anywhere and everywhere. The most notable one is that of Google’s Knowledge Graph where they have devised a technique to correlate and create connections among objects/information of the real world, where the object could be anything from a book, a movie, or even an IPL team. The object is ‘connected’ to other closely related objects, such as like the top scorer of a particular IPL team or information about that team’s owner and so on. This allows to use collective human wisdom to gain broader knowledge of anything, for the betterment of the future of mankind.
+
+![Knowledge Graph](https://github.com/abxhr/College-Stuff/blob/main/Year%202/Discrete%20Structures/Assignment/1/assets/KnowledgeGraph.png)
 
 •	Path Optimization Algorithms:
 These algorithms are occupied with finding the best connection that fits some predefined criteria e.g. speed, safety, fuel etc. or set of criteria e.g. procedures, routes. Breadth First Search (BFS) or Depth First Search (DFS) could be used to find a minimum spanning tree and this could be used to optimize the results for any path. Dijkstra’s Algorithm is also a shortest path greedy algorithm used in the field of path optimization. Although the uses of finding the shortest path between two nodes may seem very minimal, it is not so in the real world. 
