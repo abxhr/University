@@ -584,7 +584,7 @@ class Program{
     //LOGIN PAGE......FIRST MENU
     public static void login() {                            //PLEASE CHANGE
         refreshScreen();
-        System.out.println("\n\t[1]: Admin Login\n\t[2]: Client Login\n\t[3]: Exit\n\t[4]: Help\n");
+        System.out.println("\n[1]: Admin Login\n[2]: Client Login\n[3]: Exit\n[4]: Help\n");
 	    System.out.println("\tSelect An Option [1-4]");
         System.out.print("\tOption : ");
 
@@ -607,13 +607,14 @@ class Program{
                     login();
                 break;
                 default:
-                    System.out.println("\n\t\tInavlid Option........\nPlease enter a valid option...\n");
+                    System.out.println("\n......Inavlid Option........\nPlease enter a valid option...\n");
 		            transitionBuffer();
                     login();
             }
         }
         catch (InputMismatchException E) {
-            System.out.println("Please enter a valid option!");
+            System.out.println("\n......Inavlid Option........\nPlease enter a valid option...\n");
+	    input.nextLine();
             transitionBuffer();
             login();
         }
@@ -629,12 +630,12 @@ class Program{
         String password = input.nextLine();
 
         if (username.equals(USERNAME) && password.equals(PASSWORD)) {
-            System.out.println(".....................Logged in succesfully!");
+            System.out.println("\n.....................Logged in succesfully!");
             transitionBuffer();
             adminMenu();
         } 
         else {
-            System.out.println(".....................Invalid Username or Password");
+            System.out.println("\n.....................Invalid Username or Password");
             transitionBuffer();
             login();
         }
@@ -689,9 +690,9 @@ class Program{
  
     public static void adminMenu(){
         refreshScreen();
-        System.out.println("\n\n\t\t\tADMIN MENU\n\n");
-        System.out.println("\t[1]: Make New Client\n\t[2]: Change Client Plan\n\t[3]: Delete Client\n\t[4]: Logout from Admin\n\n");
-	    System.out.println("\tSelect An Option");
+        System.out.println("\tADMIN MENU\n");
+        System.out.println("[1]: Make New Client\n[2]: Change Client Plan\n[3]: Delete Client\n[4]: Logout from Admin\n\n");
+	    System.out.println("\tSelect An Option [1-4]");
         System.out.print("\tOption : ");
         int option = input.nextInt();
         switch(option){
@@ -718,7 +719,7 @@ class Program{
                 login();
             break;
             default:
-                System.out.println("\n\t\tInvalid Option........\nPlease enter a valid option...\n");
+                System.out.println("\n.......Inavlid Option.........\nPlease enter a valid option...\n");
                 transitionBuffer();
                 adminMenu();
         }
