@@ -152,7 +152,7 @@ class Health extends Insurance{
                 this.used = 0;
             break;
             default:
-                System.out.println("NOT VALID INPUT!\n");
+                System.out.println("INVALID INPUT!\n");
         }
         this.display();
     }
@@ -607,13 +607,13 @@ class Program{
                     login();
                 break;
                 default:
-                    System.out.println("\n......Inavlid Option........\nPlease enter a valid option...\n");
+                    System.out.println("\n......Invalid Option........\nPlease enter a valid option...\n");
 		            transitionBuffer();
                     login();
             }
         }
         catch (InputMismatchException E) {
-            System.out.println("\n......Inavlid Option........\nPlease enter a valid option...\n");
+            System.out.println("\n......Invalid Option........\nPlease enter a valid option...\n");
 	    input.nextLine();
             transitionBuffer();
             login();
@@ -719,7 +719,7 @@ class Program{
                 login();
             break;
             default:
-                System.out.println("\n.......Inavlid Option.........\nPlease enter a valid option...\n");
+                System.out.println("\n.......Invalid Option.........\nPlease enter a valid option...\n");
                 transitionBuffer();
                 adminMenu();
         }
