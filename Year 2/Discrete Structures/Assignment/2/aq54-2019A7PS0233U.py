@@ -65,10 +65,8 @@ def bordered(text):                                                     # Format
     return '\n'.join(res)
 print(bordered(output_str))
 
-
 a = bordered(output_str)
 out_file.write(a.encode('utf8'))                                        # Writing to the output file
-
 
 in_file.close()                                                         # Closing the input file
 out_file.close()                                                        # Closing the output file
