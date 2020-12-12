@@ -277,7 +277,7 @@ class Health extends Insurance{
             if(this.used == this.total_cov_amount){
                 System.out.println("\n\tTotal Coverage Amount Reached!");
             }
-            System.out.print("\n\tDo you have more claims to make?\n[1]: YES\t[2]: NO\n\tEnter: ");
+            System.out.print("\n\tDo you have more claims to make?\n\t[1]: YES\t[2]: NO\n\tEnter: ");
             has = input.nextInt();
         }
     }
@@ -906,10 +906,10 @@ class Program extends formatter{
     /// At the end
     public static void termsAndConditions() {
         refreshScreen();
-        System.out.println("\n\t\t\tTERMS AND CONDITIONS:\n\n");
-        System.out.println("\nPLAN DETAILS OF HEALTH INSURANCE:\n\n");
+        System.out.println("\n\t\tTERMS AND CONDITIONS:\n\n");
+        System.out.println("\nPLAN DETAILS OF HEALTH INSURANCE:\n");
         Health.printDetails();
-        System.out.println("\n\nPLAN DETAILS OF VEHICLE INSURANCE: \n\n");
+        System.out.println("\nPLAN DETAILS OF VEHICLE INSURANCE: \n");
         Vehicle.printDetails();
         System.out.println("\n\tTHANK YOU FOR USING THEKUMOOTIL INSURANCE!");
         System.out.println("\n\tWe will soon cover dog also!");
