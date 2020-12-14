@@ -4,7 +4,7 @@ import java.time.*;
 import java.text.*;
 import java.text.SimpleDateFormat;
 
-class formatter{
+public class formatter{
     static Scanner input = new Scanner(System.in);
 
     public static void clearScreen() {
@@ -23,7 +23,7 @@ class formatter{
     }
 }
 
-abstract class Insurance extends formatter{
+public abstract class Insurance extends formatter{
     String name;
     String id;
     String client_pass;
@@ -34,7 +34,7 @@ abstract class Insurance extends formatter{
     double used;
     static Scanner input = new Scanner(System.in);
     
-    Insurance(String name, String id, String client_pass){
+    public Insurance(String name, String id, String client_pass){
         this.name = name;
         this.id = id;
         this.client_pass = client_pass;
@@ -47,16 +47,16 @@ abstract class Insurance extends formatter{
         expiry_d = DateFor.format(e);
     }
 
-    void display(){
+    public void display(){
         System.out.printf("\n\n\t\tName: %s\n\t\tID: %s\n\t\tType: %s\n\t\tPremium: %.2f\n\t\tStart: %s\n\t\tExpiry: %s", name, id, type, premium, start_d, expiry_d);
     }
 
-    abstract void modify();
-    abstract void planChooser(int op);
-    abstract void claims();
+    public abstract void modify();
+    public abstract void planChooser(int op);
+    public abstract void claims();
 }
 
-class Health extends Insurance{
+public class Health extends Insurance{
     double total_cov_amount;
     private String [] hospitals = {"NMC Hospitals", "Aster Hospitals/Clinics", "Al Noor Clinic", "Zulekha Hospital", "Thumbay Hospital", "Iranian Hospital", "International Modern Hospital", "Belhoul Speciality Hospital", "Prime Hospitals/Clinics"};
     private boolean dental = false;
@@ -67,7 +67,7 @@ class Health extends Insurance{
     private double diagnostics;
 
     // Functions: 
-    Health(String name, String id, String client_pass){
+    public Health(String name, String id, String client_pass){
         super(name, id, client_pass);
         System.out.println("\n\tWhich type of Health Insurance do you want?\n\n");
         printDetails();
@@ -76,7 +76,7 @@ class Health extends Insurance{
         this.planChooser(op);
     }
 
-    void getHospitals(){
+    public void getHospitals(){
         System.out.println("\n\t\tList of Hospitals:\n");
         for(int i=0;i<(this.hospitals).length;i++){
             System.out.println("\n\t");
@@ -84,19 +84,19 @@ class Health extends Insurance{
         }
     }
 
-    boolean getDental(){
+    public boolean getDental(){
         return dental;
     }
 
-    boolean getOptical(){
+    public boolean getOptical(){
         return dental;
     }
 
-    boolean getMaternity(){
+    public boolean getMaternity(){
         return maternity;
     }
 
-    static void printDetails(){
+    public static void printDetails(){
         System.out.println("[1] Gold \t\t\t [2] Silver \t\t\t [3] Bronze");
         System.out.println("    Coverage : AED 200,000 \t     Coverage : AED 100,000 \t     Coverage : AED 50,000");
         System.out.println("    Premium : AED 10,000 \t     Premium : AED 5,000 \t     Premium : AED 2,500");
@@ -108,7 +108,7 @@ class Health extends Insurance{
 		System.out.println("    Maternity Covered : YES \t     Maternity Covered : YES \t     Maternity Covered : NO");
     }
 
-    void planChooser(int op){
+    public void planChooser(int op){
         switch(op){
             case 1:
                 this.type = "Gold"; 
@@ -152,7 +152,7 @@ class Health extends Insurance{
         this.display();
     }
 
-    void modify(){
+    public void modify(){
         System.out.println("\n\tEnter from the plans below:\n");
         printDetails();
         System.out.print("\n\tEnter: ");
@@ -187,7 +187,7 @@ class Health extends Insurance{
         }
     }
 
-    void claims(){
+    public void claims(){
         System.out.println("\n\t\tCLAIMS MENU:\n\n");
         int has = 1;
         int op;
@@ -282,13 +282,13 @@ class Health extends Insurance{
         }
     }
 
-    void display(){
+    public void display(){
         super.display();
         System.out.printf("\n\t\tTotal Coverage: %.2f\n\t\tDental: %B\n\t\tOptical: %B\n\t\tMaternity: %B\n\t\tConsultation Coverage: %.2f\n\t\tMedicine Coverage: %.2f\n\t\tDiagnostics Coverage: %.2f\n\n", total_cov_amount, dental, optical, maternity, consultation, medicine, diagnostics);
     }
 }
 
-class Vehicle extends Insurance{
+public class Vehicle extends Insurance{
     String car_type;                   // [1]: Sedan, [2]: SUV, [3]: Sports, [4]: Others
     String car_name;
     double car_kms;
@@ -300,7 +300,7 @@ class Vehicle extends Insurance{
 
     
     // Functions:
-    Vehicle(String name, String id, String client_pass){
+    public Vehicle(String name, String id, String client_pass){
         super(name, id, client_pass);
         System.out.println("\n\tWhich type of Vehicle Insurance do you want?\n");
         printDetails();
@@ -315,7 +315,7 @@ class Vehicle extends Insurance{
         }
     }
 
-    static void printDetails(){
+    public static void printDetails(){
         System.out.println("\t\t[1] Full Insurance \t\t\t  [2] Third - Party Insurance");
         System.out.println("------------------------------------------------------------------------------------------");
         System.out.println("      Insured Amount :  AED 50,000 for Sedan \t\tInsured Amount :  AED 25,000 for Sedan");
@@ -332,7 +332,7 @@ class Vehicle extends Insurance{
         System.out.println("\t                 AED 1,000 for Others \t\t                    AED 800 for Others");
     }
 
-    void calculateInsuredAmount(){
+    public void calculateInsuredAmount(){
         switch(type){
             case "Full Insurance":                                             // Full insurance
                 switch(car_type){
@@ -388,7 +388,7 @@ class Vehicle extends Insurance{
         }
     }
 
-    void modify(){
+    public void modify(){
         System.out.println("\n\tEnter from the plans below:\n");
         printDetails();
         System.out.print("\n\tEnter: ");
@@ -415,7 +415,7 @@ class Vehicle extends Insurance{
         }
     }
 
-    void planChooser(int op){
+    public void planChooser(int op){
         System.out.println("\n[1]: Sedan\t[2]: SUV\t[3]: Sports\t[4]: Others");
         System.out.print("\n\tEnter: ");
         int ct = input.nextInt();
@@ -489,7 +489,7 @@ class Vehicle extends Insurance{
         this.display();
     }
 
-    void claims(){
+    public void claims(){
         System.out.println("\t\tCLAIMS MENU:\n");
         int has = 1;
         int op;
@@ -529,7 +529,7 @@ class Vehicle extends Insurance{
             has = input.nextInt();
         }
     }
-    void display(){
+    public void display(){
         super.display();
         System.out.printf("\n\t\tCar Name: %s\n\t\tCar Type: %s\n\t\tKms: %.2f\n\t\tInsured Amount: %.2f\n\t\tCollision Coverage (Percent): %.2f\n\t\tMedical Deductibility: %.2f\n\t\tEmergency Roadside Assistance: %B\n\t\tSafe Driver Discount: %B\n\t\t\n\n", car_name, car_type, car_kms, insured_amount, collision, medical, emergency, sdriver);
     }
