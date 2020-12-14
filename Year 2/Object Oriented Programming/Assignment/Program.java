@@ -868,7 +868,7 @@ class Program extends formatter{
         }
     }
 
-    static int finder(String temp_id){
+    public static int finder(String temp_id){
         if(kidharHai(temp_id) == 1){
             for(int i = 0; i < all_health.size(); i++){
                 if((all_health.get(i).id).equals(temp_id)){
@@ -892,7 +892,7 @@ class Program extends formatter{
         }
     }
 
-    static int kidharHai(String id){                            // 0 -> Not there   1 -> Health   -1 -> Vehicle 
+    public static int kidharHai(String id){                            // 0 -> Not there   1 -> Health   -1 -> Vehicle 
         if(id.charAt(3) == 'H'){
             return 1;
         }
