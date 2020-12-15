@@ -644,6 +644,8 @@ class Program extends formatter{
                     }
                     else{
                         System.out.println("\n\tWRONG PASSWORD!");
+			    input.nextLine();
+			    transitionBuffer();
                     }
                 break;
                 case -1:
@@ -653,12 +655,16 @@ class Program extends formatter{
                     }
                     else{
                         System.out.println("\n\tWRONG PASSWORD!");
+			    input.nextLine();
+			    transitionBuffer();
                     }
                 break;
             }
         }
         else{
             System.out.println("\n\tWRONG USERNAME!");
+		input.nextLine();
+			    transitionBuffer();
             login();
         }
     }
