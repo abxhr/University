@@ -32,7 +32,7 @@ output_str += "Z = ["
 
 Z = []                                                                          # Taking the input of Z
 nz = int(in_file.readline())
-for i in range(1,nz+1):
+for i in range(nz):
     Z.append(i)
     output_str += str(i) + ","
 
