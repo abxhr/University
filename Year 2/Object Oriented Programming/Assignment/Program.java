@@ -4,7 +4,7 @@ import java.time.*;
 import java.text.*;
 import java.text.SimpleDateFormat;
 
-public class formatter{
+class formatter{
     static Scanner input = new Scanner(System.in);
 
     public static void clearScreen() {
@@ -23,7 +23,7 @@ public class formatter{
     }
 }
 
-public abstract class Insurance extends formatter{
+abstract class Insurance extends formatter{
     String name;
     String id;
     String client_pass;
@@ -56,7 +56,7 @@ public abstract class Insurance extends formatter{
     public abstract void claims();
 }
 
-public class Health extends Insurance{
+class Health extends Insurance{
     double total_cov_amount;
     private String [] hospitals = {"NMC Hospitals", "Aster Hospitals/Clinics", "Al Noor Clinic", "Zulekha Hospital", "Thumbay Hospital", "Iranian Hospital", "International Modern Hospital", "Belhoul Speciality Hospital", "Prime Hospitals/Clinics"};
     private boolean dental = false;
@@ -288,7 +288,7 @@ public class Health extends Insurance{
     }
 }
 
-public class Vehicle extends Insurance{
+class Vehicle extends Insurance{
     String car_type;                   // [1]: Sedan, [2]: SUV, [3]: Sports, [4]: Others
     String car_name;
     double car_kms;
