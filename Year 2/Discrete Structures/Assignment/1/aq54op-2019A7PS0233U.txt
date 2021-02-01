@@ -1,6 +1,0 @@
-+─────────────────+
-│ Vertices = 3
-│ Edges = 3
-│ Regions = 2
-│ Planarity = True
-+─────────────────+
