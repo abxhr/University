@@ -30,8 +30,9 @@ A repo to store the course work I do in college! 🎓
     <td><a href="Year 2/Semester 1/Digital Design/">Digital Design</a></td>
   </tr>
   <tr>
-    <td rowspan=1 align="center">2</td>
-    <td ><a href="Year 2/Semester 2/DSA/">Data Structures and Algorithms</a></td>
+    <td rowspan=2 align="center">2</td>
+    <td><a href="Year 2/Semester 2/DSA/">Data Structures and Algorithms</a></td>
+    <td><a href="Year 2/Semester 2/DBMS/">Database Management Systems</a></td>
   </tr>
 </tbody>
 </table>
