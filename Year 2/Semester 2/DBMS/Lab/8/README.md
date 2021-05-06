@@ -4,4 +4,4 @@ Create a connection to your Database Server through Java, using `JDBC`, and exec
 
 ## Answers
 
-Check [`jdbc.java`](jdbc.java)
+Check [`file.java`](file.java)
