@@ -136,7 +136,7 @@ public class NewPlayer extends javax.swing.JFrame {
             // Loading Driver
             Class.forName("com.mysql.jdbc.Driver");
             // Getting MySql Connection
-            Connection con = DriverManager.getConnection("jdbc:mysql://172.16.100.8/20190233db", "2019A7PS0233U", "a");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/20190233db", "root", "#");
             
             // Creating Statement
             Statement stmt = con.createStatement();
