@@ -42,5 +42,37 @@ A repo to store the course work I do in college! 🎓
   <tr>
     <td><a href="Year 2/Semester 2/MP/">Microprocessors & Interfacing</a></td>
   </tr>
+  <tr>
+    <td rowspan="9" align="center">3</td>
+    <td rowspan="5" align="center">1</td>
+    <td><a href="Year 3/Semester 1//">Computer Architecture</a></td>
+  </tr>
+    <td><a href="Year 3/Semester 2/Theory of Computation/">Theory of Computation</a></td>
+  </tr>
+    <td><a href="Year 3/Semester 2/Operating Systems/">Operating Systems</a></td>
+  </tr>
+    <td><a href="Year 3/Semester 2/POPL/">Principles of Programming Languages</a></td>
+  </tr>
+    <td><a href="Year 3/Semester 2/DM/">Data Mining</a></td>
+  </tr> 
+  <tr>
+    <td rowspan="4" align="center">2</td>
+    <td><a href="Year 3/Semester 2//">Compiler Construction</a></td>
+  </tr>
+  <td><a href="Year 3/Semester 2//">Computer Networks</a></td>
+  </tr>
+    <td><a href="Year 3/Semester 2//">Design and Analysis of Algorithms</a></td>
+  </tr>
+    <td><a href="Year 3/Semester 2//">Deep Learning</a></td>
+  </tr>
+    <td><a href="Year 3/Semester 2//">Optimization</a></td>
+  </tr>
+
+
+
+
+
+
+
 </tbody>
 </table>
